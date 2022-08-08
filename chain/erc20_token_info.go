@@ -23,8 +23,6 @@ type ERC20TokenMetadata struct {
 	PeriodStart        big.Int
 	PeriodDuration     big.Int
 	TaxLevel           big.Int
-	// minter
-	// allowance
 }
 
 // ERC20TokenInfo returns all getter only token metadata that requires no args, also includes all demurrage token info if applicable
@@ -91,49 +89,4 @@ func (p *Provider) ERC20TokenInfo(ctx context.Context, tokenAddress common.Addre
 	erc20TokenMetdata.TaxLevel = taxLevel
 
 	return erc20TokenMetdata, nil
-}
-
-// BalanceOf Returns the amount of tokens owned by account.
-func (p *Provider) ERC20BalanceOf(ctx context.Context, tokenAddress common.Address, accountAddress common.Address) (big.Int, error) {
-	var balance big.Int
-
-	err := p.EthClient.CallCtx(
-		ctx,
-		eth.CallFunc(w3.MustNewFunc("balanceOf(address _account)", "uint256"), tokenAddress, accountAddress).Returns(&balance),
-	)
-	if err != nil {
-		return big.Int{}, err
-	}
-
-	return balance, nil
-}
-
-// BaseBalanceOf Returns the amount of tokens owned by account, unmodified by demurrage.
-func (p *Provider) ERC20BaseBalanceOf(ctx context.Context, tokenAddress common.Address, accountAddress common.Address) (big.Int, error) {
-	var balance big.Int
-
-	err := p.EthClient.CallCtx(
-		ctx,
-		eth.CallFunc(w3.MustNewFunc("baseBalanceOf(address _account)", "uint256"), tokenAddress, accountAddress).Returns(&balance),
-	)
-	if err != nil {
-		return big.Int{}, err
-	}
-
-	return balance, nil
-}
-
-// ActualPeriod Returns the demurrage period of the current block number.
-func (p *Provider) ERC20ActualPeriod(ctx context.Context, tokenAddress common.Address) (big.Int, error) {
-	var demurragePeriod big.Int
-
-	err := p.EthClient.CallCtx(
-		ctx,
-		eth.CallFunc(w3.MustNewFunc("actualPeriod()", "uint128"), tokenAddress).Returns(&demurragePeriod),
-	)
-	if err != nil {
-		return big.Int{}, err
-	}
-
-	return demurragePeriod, nil
 }
