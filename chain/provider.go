@@ -9,7 +9,7 @@ import (
 
 // KitabuChainId represents the mainnet chain ID and Network ID.
 const (
-	KitabuChainId = 5050
+	KitabuChainId = 6060
 )
 
 // Provider returns an RPC client and a legacy signer compatible with the Kitabu Chain.
