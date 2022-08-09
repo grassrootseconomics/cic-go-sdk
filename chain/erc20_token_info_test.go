@@ -11,7 +11,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-var rpcEndpoint = "http://127.0.0.1:8545"
+var rpcEndpoint = "https://rpc.sarafu.network"
 
 func TestProvider_ERC20TokenInfo(t *testing.T) {
 	p, err := NewProvider(rpcEndpoint)

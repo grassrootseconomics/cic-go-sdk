@@ -73,6 +73,7 @@ func TestProvider_BuildKitabuTx(t *testing.T) {
 		return
 	}
 
+	// Throwaway key from https://vanity-eth.tk/
 	privateKey, err := crypto.HexToECDSA("2e2838a1f752e343e310d3536f8acbd9149bb39f05c9a26db0d58becc33e8d57")
 	if err != nil {
 		t.Fatal(err)
@@ -130,6 +131,7 @@ func TestProvider_BuildKitabuTx(t *testing.T) {
 				return
 			}
 
+			// TODO: Add more assert fields
 			if assert.NotNil(t, got) {
 				assert.Equal(t, big.NewInt(6060), got.ChainId())
 				// Input construction testing against eth-encode py equivalent tx
