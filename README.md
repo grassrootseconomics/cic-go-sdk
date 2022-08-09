@@ -1,10 +1,9 @@
+# cic-go-sdk
 [![Go](https://github.com/grassrootseconomics/cic-go-sdk/actions/workflows/go.yml/badge.svg)](https://github.com/grassrootseconomics/cic-go-sdk/actions/workflows/go.yml)
 [![Coverage Status](https://coveralls.io/repos/github/grassrootseconomics/cic-go-sdk/badge.svg?branch=master)](https://coveralls.io/github/grassrootseconomics/cic-go-sdk?branch=master)
 [![Go Report Card](https://goreportcard.com/badge/github.com/grassrootseconomics/cic-go-sdk)](https://goreportcard.com/report/github.com/grassrootseconomics/cic-go-sdk)
 
-# cic-go-sdk
 Go SDK to interact with GE CIC components and build custom solutions around them
-
 
 [`chain`](https://pkg.go.dev/github.com/grassrootseconomics/cic-go-sdk/chain "API documentation") package
 ---------------------------------------------------------------------------------------------------------
